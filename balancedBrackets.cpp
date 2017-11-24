@@ -34,17 +34,40 @@ bool is_balanced(string expression) {
         }
         else
         {
+            if(s.empty())
+            {
+                return false;
+            }
             switch(expression[i])
             {
                 case ')':
                     a=s.top();
                     s.pop();
                     if(a=='{'||a=='[')
-                        break;
+                        return false;
+                    break;
+
+                case '}':
+                    b=s.top();
+                    s.pop();
+                    if(b=='('||b=='[')
+                        return false;
+                    break;
+                case ']':
+                    c=s.top();
+                    s.pop();
+                    if(c=='('||c=='{')
+                        return false;
+                    break;
 
             }
         }
     }
+
+    if(s.empty())
+        return true;
+    else
+        return false;
 }
 
 int main(){
