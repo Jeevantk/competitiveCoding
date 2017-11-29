@@ -10,4 +10,10 @@ using namespace std;
 int main()
 {
 	return 0;
+
+	switch(')')
+	{
+		case ')':
+		
+	}
 }
